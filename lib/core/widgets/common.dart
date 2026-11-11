@@ -6,12 +6,7 @@ import '../theme/app_theme.dart';
 String number(num value) => NumberFormat.decimalPattern().format(value);
 
 class EmptyState extends StatelessWidget {
-  const EmptyState({
-    required this.title,
-    required this.message,
-    this.action,
-    super.key,
-  });
+  const EmptyState({required this.title, required this.message, this.action, super.key});
   final String title;
   final String message;
   final Widget? action;
@@ -21,18 +16,12 @@ class EmptyState extends StatelessWidget {
       padding: const EdgeInsets.all(28),
       child: Column(
         children: [
-          Icon(
-            Icons.folder_open,
-            size: 44,
-            color: Theme.of(context).colorScheme.primary,
-          ),
+          Icon(Icons.folder_open, size: 44, color: Theme.of(context).colorScheme.primary),
           const SizedBox(height: 14),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: Theme.of(
-              context,
-            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
           Text(message, textAlign: TextAlign.center),
@@ -44,12 +33,7 @@ class EmptyState extends StatelessWidget {
 }
 
 class RecordCard extends StatelessWidget {
-  const RecordCard({
-    required this.record,
-    required this.onEdit,
-    required this.onDelete,
-    super.key,
-  });
+  const RecordCard({required this.record, required this.onEdit, required this.onDelete, super.key});
   final HealthRecord record;
   final VoidCallback onEdit;
   final VoidCallback onDelete;
@@ -78,14 +62,8 @@ class RecordCard extends StatelessWidget {
                 tooltip: 'Record actions',
                 onSelected: (value) => value == 'edit' ? onEdit() : onDelete(),
                 itemBuilder: (_) => [
-                  const PopupMenuItem(
-                    value: 'edit',
-                    child: Text('Edit record'),
-                  ),
-                  const PopupMenuItem(
-                    value: 'delete',
-                    child: Text('Delete record'),
-                  ),
+                  const PopupMenuItem(value: 'edit', child: Text('Edit record')),
+                  const PopupMenuItem(value: 'delete', child: Text('Delete record')),
                 ],
               ),
             ],
@@ -105,11 +83,7 @@ class RecordCard extends StatelessWidget {
                 '${number(record.calories)} kcal',
                 AppColors.calories,
               ),
-              _Metric(
-                Icons.water_drop_outlined,
-                '${number(record.water)} ml',
-                AppColors.water,
-              ),
+              _Metric(Icons.water_drop_outlined, '${number(record.water)} ml', AppColors.water),
             ],
           ),
         ],
@@ -129,10 +103,7 @@ class _Metric extends StatelessWidget {
     children: [
       Icon(icon, color: AppColors.metric(context, color), size: 18),
       const SizedBox(width: 4),
-      Text(
-        text,
-        style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-      ),
+      Text(text, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
     ],
   );
 }
@@ -149,14 +120,8 @@ Future<bool> confirm(
         title: Text(title),
         content: Text(message),
         actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: Text(action),
-          ),
+          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Cancel')),
+          FilledButton(onPressed: () => Navigator.pop(context, true), child: Text(action)),
         ],
       ),
     ) ??
@@ -165,7 +130,5 @@ Future<bool> confirm(
 void feedbackMessage(BuildContext context, String message) {
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
-    ..showSnackBar(
-      SnackBar(content: Text(message), behavior: SnackBarBehavior.floating),
-    );
+    ..showSnackBar(SnackBar(content: Text(message), behavior: SnackBarBehavior.floating));
 }
