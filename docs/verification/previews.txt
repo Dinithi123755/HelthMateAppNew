@@ -1,0 +1,3 @@
+00:00 +0: loading C:/Users/dinit/OneDrive/Desktop/healthmate/test/ui_preview.dart
+00:00 +0: Render mobile screens for visual review
+00:01 +1: All tests passed!

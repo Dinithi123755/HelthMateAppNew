@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "HealthMate",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main.dart",
+      "preLaunchTask": "HealthMate: prepare local build cache"
+    },
+    {
+      "name": "HealthMate (profile)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "preLaunchTask": "HealthMate: prepare local build cache"
+    }
+  ]
+}

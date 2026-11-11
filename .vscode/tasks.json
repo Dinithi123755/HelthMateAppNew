@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [{
+    "label": "HealthMate: prepare local build cache",
+    "type": "process",
+    "command": "powershell.exe",
+    "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/prepare_build_cache.ps1"],
+    "problemMatcher": [],
+    "presentation": {"reveal": "silent", "panel": "dedicated"}
+  }]
+}

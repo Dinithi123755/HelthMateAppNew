@@ -1,0 +1,5 @@
+package: name='com.healthmate.healthmate' versionCode='1' versionName='1.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+sdkVersion:'24'
+targetSdkVersion:'36'
+application-label:'HealthMate'
+launchable-activity: name='com.healthmate.healthmate.MainActivity'  label='' icon=''

@@ -1,0 +1,15 @@
+00:00 +0: loading C:/Users/dinit/OneDrive/Desktop/healthmate/test/migration_test.dart
+00:00 +0: C:/Users/dinit/OneDrive/Desktop/healthmate/test/migration_test.dart: TC13 removing preferences preserves existing health records
+00:00 +1: C:/Users/dinit/OneDrive/Desktop/healthmate/test/migration_test.dart: TC13 removing preferences preserves existing health records
+00:00 +2: C:/Users/dinit/OneDrive/Desktop/healthmate/test/repository_test.dart: TC02 rejects negative, excessive, empty-activity and future records
+00:00 +3: C:/Users/dinit/OneDrive/Desktop/healthmate/test/repository_test.dart: TC03 demo refresh is idempotent and removal preserves personal rows
+00:00 +4: C:/Users/dinit/OneDrive/Desktop/healthmate/test/repository_test.dart: TC04 records survive database close and reopen
+00:00 +5: C:/Users/dinit/OneDrive/Desktop/healthmate/test/view_model_test.dart: TC06 daily totals aggregate multiple entries and exclude other days
+00:00 +6: C:/Users/dinit/OneDrive/Desktop/healthmate/test/view_model_test.dart: TC06 daily totals aggregate multiple entries and exclude other days
+00:00 +7: C:/Users/dinit/OneDrive/Desktop/healthmate/test/view_model_test.dart: TC07 exact date filtering can be cleared
+00:00 +8: C:/Users/dinit/OneDrive/Desktop/healthmate/test/view_model_test.dart: TC08 failed save leaves records unchanged and surfaces recoverable error
+00:00 +9: C:/Users/dinit/OneDrive/Desktop/healthmate/test/view_model_test.dart: TC09 numeric validation rejects missing, decimal and nonnumeric input
+00:00 +10: C:/Users/dinit/OneDrive/Desktop/healthmate/test/view_model_test.dart: TC10 calendar-day windows cross year boundary and update on midnight
+00:00 +11: C:/Users/dinit/OneDrive/Desktop/healthmate/test/widget_test.dart: TC11 form validates, saves, edits and deletes via visible controls
+00:02 +12: C:/Users/dinit/OneDrive/Desktop/healthmate/test/widget_test.dart: TC12 navigation fits a narrow phone with large text
+00:02 +13: All tests passed!
