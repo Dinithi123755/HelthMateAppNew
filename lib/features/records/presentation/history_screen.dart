@@ -22,10 +22,7 @@ class HistoryScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 100),
       children: [
-        Text(
-          'Health records',
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
+        Text('Health records', style: Theme.of(context).textTheme.headlineSmall),
         const SizedBox(height: 16),
         Wrap(
           spacing: 12,
@@ -49,10 +46,7 @@ class HistoryScreen extends StatelessWidget {
               },
             ),
             if (vm.selectedDate != null)
-              TextButton(
-                onPressed: () => vm.filter(null),
-                child: const Text('Show all'),
-              ),
+              TextButton(onPressed: () => vm.filter(null), child: const Text('Show all')),
           ],
         ),
         const SizedBox(height: 16),
@@ -64,10 +58,7 @@ class HistoryScreen extends StatelessWidget {
             message: vm.selectedDate == null
                 ? 'Add a health record to get started.'
                 : 'No records for this date.',
-            action: TextButton(
-              onPressed: onAdd,
-              child: const Text('Add record'),
-            ),
+            action: TextButton(onPressed: onAdd, child: const Text('Add record')),
           )
         else
           ...rows.map(
