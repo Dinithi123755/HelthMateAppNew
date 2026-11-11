@@ -57,10 +57,7 @@ class _RecordFormState extends State<RecordForm> {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted) return;
         Navigator.pop(context);
-        feedbackMessage(
-          context,
-          widget.record == null ? 'Record saved.' : 'Record updated.',
-        );
+        feedbackMessage(context, widget.record == null ? 'Record saved.' : 'Record updated.');
       });
     } else {
       setState(() => _error = vm.error);
@@ -88,9 +85,7 @@ class _RecordFormState extends State<RecordForm> {
         }
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(widget.record == null ? 'Add record' : 'Edit record'),
-        ),
+        appBar: AppBar(title: Text(widget.record == null ? 'Add record' : 'Edit record')),
         body: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 640),
@@ -102,21 +97,14 @@ class _RecordFormState extends State<RecordForm> {
               child: ListView(
                 padding: const EdgeInsets.all(24),
                 children: [
-                  const Text(
-                    'Enter the date, steps walked, calories burned and water intake.',
-                  ),
+                  const Text('Enter the date, steps walked, calories burned and water intake.'),
                   const SizedBox(height: 24),
                   Card(
                     child: ListTile(
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 18,
-                        vertical: 8,
-                      ),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
                       leading: const Icon(Icons.calendar_month_outlined),
                       title: const Text('Activity date'),
-                      subtitle: Text(
-                        DateFormat('EEEE, d MMMM yyyy').format(_date),
-                      ),
+                      subtitle: Text(DateFormat('EEEE, d MMMM yyyy').format(_date)),
                       trailing: const Icon(Icons.edit_calendar_outlined),
                       onTap: busy
                           ? null
@@ -137,14 +125,7 @@ class _RecordFormState extends State<RecordForm> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  _field(
-                    _steps,
-                    'Steps walked',
-                    'steps',
-                    Icons.directions_walk,
-                    200000,
-                    busy,
-                  ),
+                  _field(_steps, 'Steps walked', 'steps', Icons.directions_walk, 200000, busy),
                   const SizedBox(height: 20),
                   _field(
                     _calories,
@@ -155,23 +136,14 @@ class _RecordFormState extends State<RecordForm> {
                     busy,
                   ),
                   const SizedBox(height: 20),
-                  _field(
-                    _water,
-                    'Water intake',
-                    'ml',
-                    Icons.water_drop_outlined,
-                    20000,
-                    busy,
-                  ),
+                  _field(_water, 'Water intake', 'ml', Icons.water_drop_outlined, 20000, busy),
                   const SizedBox(height: 12),
                   if (_error != null)
                     Padding(
                       padding: const EdgeInsets.only(top: 16),
                       child: Text(
                         _error!,
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.error,
-                        ),
+                        style: TextStyle(color: Theme.of(context).colorScheme.error),
                       ),
                     ),
                   const SizedBox(height: 28),
@@ -215,11 +187,7 @@ class _RecordFormState extends State<RecordForm> {
     keyboardType: TextInputType.number,
     textInputAction: TextInputAction.next,
     autovalidateMode: AutovalidateMode.onUserInteraction,
-    decoration: InputDecoration(
-      labelText: label,
-      suffixText: unit,
-      prefixIcon: Icon(icon),
-    ),
+    decoration: InputDecoration(labelText: label, suffixText: unit, prefixIcon: Icon(icon)),
     validator: (value) => RecordRules.number(value, label.toLowerCase(), max),
   );
 }
