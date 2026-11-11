@@ -24,11 +24,8 @@ ThemeData appTheme({Brightness brightness = Brightness.light}) {
   final muted = dark ? const Color(0xFFA8BFB6) : AppColors.muted;
   final line = dark ? const Color(0xFF365048) : AppColors.line;
   final primary = dark ? const Color(0xFF74D9C7) : AppColors.primary;
-  final scheme =
-      ColorScheme.fromSeed(
-        seedColor: AppColors.primary,
-        brightness: brightness,
-      ).copyWith(
+  final scheme = ColorScheme.fromSeed(seedColor: AppColors.primary, brightness: brightness)
+      .copyWith(
         primary: primary,
         onPrimary: dark ? const Color(0xFF00382F) : Colors.white,
         surface: surface,
@@ -36,15 +33,9 @@ ThemeData appTheme({Brightness brightness = Brightness.light}) {
         onSurfaceVariant: muted,
         outlineVariant: line,
       );
-  final base = ThemeData(
-    useMaterial3: true,
-    colorScheme: scheme,
-    fontFamily: 'Roboto',
-  );
+  final base = ThemeData(useMaterial3: true, colorScheme: scheme, fontFamily: 'Roboto');
   return base.copyWith(
-    scaffoldBackgroundColor: dark
-        ? const Color(0xFF101E1B)
-        : AppColors.background,
+    scaffoldBackgroundColor: dark ? const Color(0xFF101E1B) : AppColors.background,
     textTheme: base.textTheme.copyWith(
       headlineSmall: TextStyle(
         fontFamily: 'Roboto',
@@ -60,12 +51,7 @@ ThemeData appTheme({Brightness brightness = Brightness.light}) {
         fontWeight: FontWeight.w700,
         color: ink,
       ),
-      bodyMedium: TextStyle(
-        fontFamily: 'Roboto',
-        fontSize: 14,
-        height: 1.45,
-        color: ink,
-      ),
+      bodyMedium: TextStyle(fontFamily: 'Roboto', fontSize: 14, height: 1.45, color: ink),
     ),
     appBarTheme: AppBarTheme(
       centerTitle: false,
@@ -103,11 +89,7 @@ ThemeData appTheme({Brightness brightness = Brightness.light}) {
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
         minimumSize: const Size(48, 52),
-        textStyle: TextStyle(
-          fontFamily: 'Roboto',
-          fontSize: 15,
-          fontWeight: FontWeight.w600,
-        ),
+        textStyle: TextStyle(fontFamily: 'Roboto', fontSize: 15, fontWeight: FontWeight.w600),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       ),
     ),
@@ -133,9 +115,7 @@ ThemeData appTheme({Brightness brightness = Brightness.light}) {
         (states) => TextStyle(
           fontFamily: 'Roboto',
           fontSize: 12,
-          fontWeight: states.contains(WidgetState.selected)
-              ? FontWeight.w700
-              : FontWeight.w500,
+          fontWeight: states.contains(WidgetState.selected) ? FontWeight.w700 : FontWeight.w500,
           color: states.contains(WidgetState.selected) ? primary : muted,
         ),
       ),
