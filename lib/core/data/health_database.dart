@@ -2,8 +2,7 @@ import 'package:path/path.dart' as p;
 import 'package:sqflite/sqflite.dart';
 
 class HealthDatabase {
-  HealthDatabase({DatabaseFactory? factory, this.path})
-    : _factory = factory ?? databaseFactory;
+  HealthDatabase({DatabaseFactory? factory, this.path}) : _factory = factory ?? databaseFactory;
   final DatabaseFactory _factory;
   final String? path;
   Future<Database>? _opening;
@@ -11,8 +10,7 @@ class HealthDatabase {
 
   Future<Database> _open() async {
     try {
-      final location =
-          path ?? p.join(await _factory.getDatabasesPath(), 'healthmate.db');
+      final location = path ?? p.join(await _factory.getDatabasesPath(), 'healthmate.db');
       return await _factory.openDatabase(
         location,
         options: OpenDatabaseOptions(
@@ -23,16 +21,12 @@ class HealthDatabase {
             }
             if (oldVersion < 4) {
               // Preserve user records while removing the obsolete sample column.
-              await db.execute(
-                'ALTER TABLE health_records RENAME TO old_health_records',
-              );
+              await db.execute('ALTER TABLE health_records RENAME TO old_health_records');
               await db.execute('DROP INDEX IF EXISTS idx_health_records_date');
               await _createRecords(db);
-              await db.execute(
-                '''INSERT INTO health_records (id, date, steps, calories, water)
+              await db.execute('''INSERT INTO health_records (id, date, steps, calories, water)
                 SELECT id, date, steps, calories, water FROM old_health_records
-                WHERE is_demo = 0''',
-              );
+                WHERE is_demo = 0''');
               await db.execute('DROP TABLE old_health_records');
             }
           },
@@ -54,9 +48,7 @@ class HealthDatabase {
       water INTEGER NOT NULL CHECK(water BETWEEN 0 AND 20000),
       CHECK(steps + calories + water > 0)
     )''');
-    await db.execute(
-      'CREATE INDEX idx_health_records_date ON health_records(date)',
-    );
+    await db.execute('CREATE INDEX idx_health_records_date ON health_records(date)');
   }
 
   Future<void> close() async {
