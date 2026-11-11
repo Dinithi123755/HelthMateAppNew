@@ -1,8 +1,7 @@
 import 'package:intl/intl.dart';
 
 String dateKey(DateTime value) => DateFormat('yyyy-MM-dd').format(value);
-DateTime calendarDay(DateTime value) =>
-    DateTime(value.year, value.month, value.day);
+DateTime calendarDay(DateTime value) => DateTime(value.year, value.month, value.day);
 
 class HealthRecord {
   const HealthRecord({
@@ -39,15 +38,14 @@ class DailyTotals {
   final int steps;
   final int calories;
   final int water;
-  factory DailyTotals.fromRecords(Iterable<HealthRecord> records) =>
-      records.fold(
-        const DailyTotals(),
-        (total, row) => DailyTotals(
-          steps: total.steps + row.steps,
-          calories: total.calories + row.calories,
-          water: total.water + row.water,
-        ),
-      );
+  factory DailyTotals.fromRecords(Iterable<HealthRecord> records) => records.fold(
+    const DailyTotals(),
+    (total, row) => DailyTotals(
+      steps: total.steps + row.steps,
+      calories: total.calories + row.calories,
+      water: total.water + row.water,
+    ),
+  );
 }
 
 class RecordRules {
